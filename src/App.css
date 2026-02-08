@@ -108,7 +108,8 @@
 
 }
 .box input {
-  width: 400px;
+ max-width: 400px; 
+ width: 90vw;
   padding: 10px;
   border-radius: 25px;
   background: transparent;
@@ -132,7 +133,7 @@
   align-items: center;
   gap: 20px;
   margin-top: 40px;
-  height: 100vh;
+ min-height: 100vh;
  
  }
  h2{
@@ -140,7 +141,8 @@
   text-align: center;
  }
 .one,.two,.three{
-width: 600px;
+width: 100%; 
+max-width: 600px;
 height: 600px;
 position: relative;
 }
@@ -216,18 +218,162 @@ background-size: cover;
 }
 
 
-.footer{
+.footer {
   margin-top: 40px;
-  height : 50vh;
+  min-height: 40vh; /* Changed from 50vh to min-height for better content fit */
   background: #000328;
   color: white;
-  display: flex;
-  justify-content: space-evenly;
-  gap: 10px;
+  padding: 60px 10%; /* Adds breathing room on the sides */
+  
+  /* Grid Magic */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px;
 }
- 
-.sus{
+
+.footer h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a0a8ff; /* Light accent color for headers */
+}
+
+.footer p, .footer a {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #cbd5e0;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.sus {
   background: #133a94;
   color: white;
-  padding: 10px 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px; /* Softens the button */
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.sus:hover {
+  background: #1c52d1;
+}
+
+/* Make it look good on phones */
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 40px 20px;
+  }
+}
+
+
+/* Container for the whole page */
+.flights-page {
+  padding: 40px 10%;
+  background-color: #f4f7f6; /* Light grey background to make cards pop */
+  min-height: 100vh;
+}
+
+/* Tabs Styling */
+.flight-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.flight-tabs button {
+  padding: 12px 30px;
+  border: none;
+  background: white;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.flight-tabs button.active {
+  background: #133a94; /* Your brand blue */
+  color: white;
+}
+
+/* The Flight List Container */
+.flight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual Flight Card */
+.flight-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.flight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.airline-info strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.airline-info span {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.route {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.price-tag {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #133a94;
+}
+
+.select-btn {
+  background: #133a94;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .flight-card {
+    flex-direction: column; /* Stack info on phones */
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .flight-tabs button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
 }
