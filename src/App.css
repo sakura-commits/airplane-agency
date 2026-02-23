@@ -377,3 +377,288 @@ background-size: cover;
     font-size: 0.9rem;
   }
 }
+
+/* Container Spacing */
+.flights-page {
+  padding: 120px 10% 60px 10%;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+}
+
+/* Details View Styling */
+.flight-details-view {
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-container {
+  padding: 120px 10% 60px 10%;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.booking-form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.input-group input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.booking-summary {
+  background: #133a94;
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  height: fit-content;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.confirm-pay-btn {
+  width: 100%;
+  padding: 15px;
+  background: #10b981; /* Success Green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+  .booking-summary {
+    order: -1; /* Summary appears first on mobile */
+  }
+}
+/* Payment Selector Styling */
+.payment-selector {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.pay-option {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.pay-option.active {
+  border-color: #133a94;
+  background: #f0f4ff;
+  color: #133a94;
+}
+
+.mobile-note {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  background: #fff8e1;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Offer Tags */
+.offer-tag {
+  background: #ff4757;
+  color: white;
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.offer-badge-small {
+  display: block;
+  background: #ffcf33;
+  color: #000;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.contact-page {
+  padding: 120px 10% 60px 10%;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-header h1 {
+  color: #000328;
+  font-size: 2.5rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Info Side */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background: #133a94;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 1.2rem;
+}
+
+.info-item h4 {
+  margin: 0;
+  color: #133a94;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.5rem;
+  color: #133a94;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+/* Form Side */
+.contact-form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input, .form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: #133a94;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-submit-btn:hover {
+  background: #000328;
+}
+
+/* Success Message Animation */
+.success-message {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.fly-icon {
+  font-size: 3rem;
+  color: #10b981;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

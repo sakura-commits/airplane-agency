@@ -6,6 +6,7 @@ export function Flight(){
   <>
 <Navbar/>
 <DropFlights/>
+
   </>
   )
 };

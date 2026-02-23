@@ -1,12 +1,12 @@
 import {Home} from './Pages/Home.jsx';
-import {Flight} from './Pages/Flight.jsx';
+import {Contact} from './Pages/Contact.jsx';
 
 function App() {
   
 
   return (
     <>
-    <Flight />
+    <Contact/>
     </>
   )
 }
