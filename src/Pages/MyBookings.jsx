@@ -25,7 +25,7 @@ export function MyBookings() {
     upcoming: [
       {
         id: 'BK001',
-        bookingDate: '2024-02-15',
+        bookingDate: '2026-02-20',
         status: 'confirmed',
         flights: [
           {
@@ -33,9 +33,9 @@ export function MyBookings() {
             flightNumber: 'TC402',
             from: 'DAR',
             to: 'JRO',
-            departure: '2024-03-20',
+            departure: '2026-03-20',
             departureTime: '08:30',
-            arrival: '2024-03-20',
+            arrival: '2026-03-20',
             arrivalTime: '10:15',
             class: 'Economy',
             seat: '12A',
@@ -46,9 +46,9 @@ export function MyBookings() {
             flightNumber: 'TC405',
             from: 'JRO',
             to: 'ZNZ',
-            departure: '2024-03-25',
+            departure: '2026-03-25',
             departureTime: '14:20',
-            arrival: '2024-03-25',
+            arrival: '2026-03-25',
             arrivalTime: '15:45',
             class: 'Economy',
             seat: '14C',
@@ -64,7 +64,7 @@ export function MyBookings() {
       },
       {
         id: 'BK002',
-        bookingDate: '2024-02-10',
+        bookingDate: '2026-02-15',
         status: 'pending',
         flights: [
           {
@@ -72,9 +72,9 @@ export function MyBookings() {
             flightNumber: 'EK725',
             from: 'DAR',
             to: 'DXB',
-            departure: '2024-04-05',
+            departure: '2026-04-05',
             departureTime: '21:45',
-            arrival: '2024-04-06',
+            arrival: '2026-04-06',
             arrivalTime: '06:30',
             class: 'Business',
             seat: '3A',
