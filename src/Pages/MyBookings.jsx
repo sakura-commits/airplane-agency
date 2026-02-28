@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navbar } from "../Components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Toast } from '../Components/Toast';
 import {
   faPlane,
   faDownload,
@@ -19,6 +20,7 @@ export function MyBookings() {
   const [activeTab, setActiveTab] = useState('upcoming');
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [showCancelModal, setShowCancelModal] = useState(false);
+  const [toastData, setToastData] = useState({ visible: false, message: '', type: 'info' });
 
   // Dummy bookings data
   const bookings = {
@@ -150,25 +152,32 @@ export function MyBookings() {
   const confirmCancellation = () => {
     // API call to cancel booking
     setShowCancelModal(false);
-    alert(`Booking ${selectedBooking} cancelled successfully`);
+    setToastData({ visible: true, message: `Booking ${selectedBooking} cancelled successfully`, type: 'success' });
   };
 
   const handleDownloadTicket = (bookingId) => {
-    alert(`Downloading ticket for booking ${bookingId}`);
+    setToastData({ visible: true, message: `Downloading ticket for booking ${bookingId}`, type: 'info' });
   };
 
   const handlePrintTicket = (bookingId) => {
-    alert(`Printing ticket for booking ${bookingId}`);
+    setToastData({ visible: true, message: `Printing ticket for booking ${bookingId}`, type: 'info' });
   };
 
   const handleCheckIn = (bookingId) => {
-    alert(`Proceeding to check-in for booking ${bookingId}`);
+    setToastData({ visible: true, message: `Proceeding to check-in for booking ${bookingId}`, type: 'info' });
   };
 
   return (
     <>
       <Navbar />
       <div className="bookings-page">
+        {toastData.visible && (
+          <Toast
+            message={toastData.message}
+            type={toastData.type}
+            onClose={() => setToastData({ ...toastData, visible: false })}
+          />
+        )}
         <div className="bookings-header">
           <h1>My Bookings</h1>
           <div className="booking-tabs">

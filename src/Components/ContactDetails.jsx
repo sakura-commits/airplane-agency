@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faEnvelope, faPhone, faLocationDot, faPaperPlane 
+  faEnvelope, faPhone, faLocationDot 
 } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import '../App.css';
+import { Toast } from './Toast';
 
 export function ContactDetails() {
-  const [submitted, setSubmitted] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setShowToast(true);
     // In a real app, you'd send this data to a backend here
   };
 
@@ -23,6 +24,13 @@ export function ContactDetails() {
       </div>
 
       <div className="contact-grid">
+        {showToast && (
+          <Toast
+            message="Your message has been sent! We'll get back to you within 24 hours."
+            type="success"
+            onClose={() => { setShowToast(false); }}
+          />
+        )}
         {/* Left Side: Contact Information */}
         <div className="contact-info">
           <div className="info-item">
@@ -61,15 +69,7 @@ export function ContactDetails() {
 
         {/* Right Side: Contact Form */}
         <div className="contact-form-card">
-          {submitted ? (
-            <div className="success-message">
-              <FontAwesomeIcon icon={faPaperPlane} className="fly-icon" />
-              <h3>Message Sent!</h3>
-              <p>We'll get back to you within 24 hours.</p>
-              <button className="back-btn" onClick={() => setSubmitted(false)}>Send another message</button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Your Name</label>
                 <input type="text" placeholder="John Doe" required />
@@ -86,7 +86,6 @@ export function ContactDetails() {
                 Send Message
               </button>
             </form>
-          )}
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ import {
   faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
+import { Toast } from '../Components/Toast';
 
 export function Settings() {
   const [activeSection, setActiveSection] = useState('account');
@@ -31,6 +32,7 @@ export function Settings() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   // Account Settings
   const [accountSettings, setAccountSettings] = useState({
@@ -170,6 +172,7 @@ export function Settings() {
 
   const handleSaveAll = () => {
     setShowSuccessMessage(true);
+    setShowToast(true);
     setIsEditing(false);
     setTimeout(() => setShowSuccessMessage(false), 3000);
   };
@@ -238,11 +241,12 @@ export function Settings() {
           </div>
         </div>
 
-        {showSuccessMessage && (
-          <div className="success-message">
-            <FontAwesomeIcon icon={faCheck} />
-            Settings saved successfully!
-          </div>
+        {showSuccessMessage && showToast && (
+          <Toast
+            message="Settings saved successfully!"
+            type="success"
+            onClose={() => setShowToast(false)}
+          />
         )}
 
         <div className="settings-container">

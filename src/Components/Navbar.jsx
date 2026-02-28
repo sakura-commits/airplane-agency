@@ -41,7 +41,6 @@ export function Navbar() {
           </ul>  
             </li>
           <Link to="/flights"><li>Book</li></Link>
-          <Link to="/my-bookings"><li>My Bookings</li></Link>
            <Link to="/contact"><li>Contact</li></Link>
         </ul>
         <div className="user-menu" ref={userDropdownRef}>

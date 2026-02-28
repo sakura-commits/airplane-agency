@@ -2714,6 +2714,75 @@ background-size: cover;
   }
 }
 
+/* Toast notification system */
+.toast {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  animation: toastIn 0.4s ease-out;
+  z-index: 10000;
+  max-width: 320px;
+  backdrop-filter: blur(5px);
+}
+
+.toast.success {
+  background: var(--success-color);
+  color: white;
+}
+
+.toast.error {
+  background: var(--error-color);
+  color: white;
+}
+
+.toast.info {
+  background: var(--primary-color);
+  color: white;
+}
+
+.toast .toast-message {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.toast .toast-close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toastOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 /* Contact Page Styles */
 .contact-page {
   padding: 120px 5% 60px 5%;
