@@ -1,20 +1,26 @@
-import React, { useEffect } from 'react';
-import '../App.css';
+import React, { useEffect } from "react";
+import "../App.css";
 
-export function Toast({ message, type = 'success', duration = 3000, onClose }) {
+function Toast({ message, type = "success", onClose }) {
+
   useEffect(() => {
-    if (duration > 0) {
-      const timer = setTimeout(() => {
-        onClose();
-      }, duration);
-      return () => clearTimeout(timer);
-    }
-  }, [duration, onClose]);
+    const timer = setTimeout(() => {
+      onClose();
+    }, 3000); // auto close after 3 seconds
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
 
   return (
-    <div className={`toast ${type}`}> 
-      <span className="toast-message">{message}</span>
-      <button className="toast-close" onClick={onClose}>&times;</button>
+    <div className={`toast-container ${type}`}>
+      <div className="toast-message">
+        {message}
+      </div>
+      <button className="toast-close-btn" onClick={onClose}>
+        ×
+      </button>
     </div>
   );
 }
+
+export default Toast;

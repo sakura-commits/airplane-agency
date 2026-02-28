@@ -3777,3 +3777,46 @@ background-size: cover;
 .rounded-md { border-radius: var(--border-radius-md); }
 .rounded-lg { border-radius: var(--border-radius-lg); }
 .rounded-xl { border-radius: var(--border-radius-xl); }
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: slideIn 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+.toast-container.error {
+  background-color: #f44336;
+}
+
+.toast-message {
+  font-size: 14px;
+}
+
+.toast-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

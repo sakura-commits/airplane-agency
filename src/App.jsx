@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home } from './Pages/Home.jsx';
-import { Flight } from './Pages/Flight.jsx';
-import { Settings } from './Pages/Settings.jsx';
-import { Profile } from './Pages/Profile.jsx';
-import { MyBookings } from './Pages/MyBookings.jsx';
-import { PaymentMethods } from './Pages/PaymentMethods.jsx';
-import { TravelPreferences } from './Pages/TravelPreferences.jsx';
-import { Contact } from './Pages/Contact.jsx';
-import Footer from './Components/Footer.jsx';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./Pages/Home.jsx";
+import { Flight } from "./Pages/Flight.jsx";
+import { Settings } from "./Pages/Settings.jsx";
+import { Profile } from "./Pages/Profile.jsx";
+import { MyBookings } from "./Pages/MyBookings.jsx";
+import { PaymentMethods } from "./Pages/PaymentMethods.jsx";
+import { TravelPreferences } from "./Pages/TravelPreferences.jsx";
+import { Contact } from "./Pages/Contact.jsx";
+import Footer from "./Components/Footer.jsx";
 
 function App() {
   return (
