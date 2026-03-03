@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Navbar } from "../Components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave, faEdit, faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
+import { Toast } from '../Components/Toast';
 
 export function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const [profile, setProfile] = useState({
     name: 'John Doe',
     email: 'john.doe@example.com',
@@ -36,6 +38,7 @@ export function Profile() {
     setProfile({ ...tempProfile });
     setIsEditing(false);
     setShowSuccess(true);
+    setShowToast(true);
     setTimeout(() => setShowSuccess(false), 3000);
   };
 
@@ -46,11 +49,12 @@ export function Profile() {
         <div className="profile-container-simple">
           <h1>Account Settings</h1>
 
-          {showSuccess && (
-            <div className="success-message-simple">
-              <FontAwesomeIcon icon={faCheck} />
-              Profile updated successfully!
-            </div>
+          {showSuccess && showToast && (
+            <Toast
+              message="Profile updated successfully!"
+              type="success"
+              onClose={() => setShowToast(false)}
+            />
           )}
 
           <div className="profile-card">
