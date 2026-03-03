@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navbar } from "../Components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Toast } from '../Components/Toast';
+import Toast from '../Components/Toast';
 import {
   faPlane,
   faDownload,

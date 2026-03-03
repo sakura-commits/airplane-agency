@@ -24,7 +24,7 @@ import {
   faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
-import { Toast } from '../Components/Toast';
+import Toast from '../Components/Toast';
 
 export function Settings() {
   const [activeSection, setActiveSection] = useState('account');

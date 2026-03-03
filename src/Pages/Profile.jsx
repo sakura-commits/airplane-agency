@@ -3,7 +3,7 @@ import { Navbar } from "../Components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
-import { Toast } from '../Components/Toast';
+import Toast from '../Components/Toast';
 
 export function Profile() {
   const [isEditing, setIsEditing] = useState(false);

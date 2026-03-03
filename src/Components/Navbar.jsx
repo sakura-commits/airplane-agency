@@ -37,7 +37,7 @@ export function Navbar() {
           <ul className="dropdown">
             <li>Hotel</li>
             <li>Car Rental</li>
-            <li>Tours</li>
+            <Link to="/tours"><li>Tours</li></Link>
           </ul>  
             </li>
           <Link to="/flights"><li>Book</li></Link>

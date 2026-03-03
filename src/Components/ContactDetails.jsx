@@ -5,7 +5,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import '../App.css';
-import { Toast } from './Toast';
+import Toast from './Toast';
 
 export function ContactDetails() {
   const [showToast, setShowToast] = useState(false);

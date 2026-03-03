@@ -7,6 +7,8 @@ import { MyBookings } from "./Pages/MyBookings.jsx";
 import { PaymentMethods } from "./Pages/PaymentMethods.jsx";
 import { TravelPreferences } from "./Pages/TravelPreferences.jsx";
 import { Contact } from "./Pages/Contact.jsx";
+import { ToursPage } from "./Pages/ToursPage.jsx"; // Tours
+import { TourDetails } from "./Pages/TourDetails.jsx"; // Tour details
 import Footer from "./Components/Footer.jsx";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/payment-methods" element={<PaymentMethods />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/preferences" element={<TravelPreferences />} />
+        <Route path="/tours" element={<ToursPage />} />
+        <Route path="/tours/:id" element={<TourDetails />} />
       </Routes>
       <Footer />
     </Router>
