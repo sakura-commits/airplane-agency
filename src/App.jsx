@@ -21,7 +21,7 @@ import { PaymentMethods } from "./Pages/PaymentMethods.jsx";
 import { TravelPreferences } from "./Pages/TravelPreferences.jsx";
 import { Contact } from "./Pages/Contact.jsx";
 import Footer from "./Components/Footer.jsx";
->>>>>>> 57d2e2fc0d4c45892d01ac95fed99722102943dd
+
 
 function App() {
   return (
