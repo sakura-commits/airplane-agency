@@ -27,21 +27,14 @@ export function Navbar() {
         <FontAwesomeIcon icon={faPlane} className="plane-icon"/>
         <ul className="nav-links">    
        <Link to="/"><li>Home</li></Link>
-        <li>Flight
-            <ul className="dropdown">
-                <li>Schedules</li>
-                <li>Offers</li>
-            </ul>
-            </li>
          <li>Services
           <ul className="dropdown">
-            <li>Hotel</li>
-            <li>Car Rental</li>
-            <li>Tours</li>
+       <Link to="/hotel"><li>Hotel</li></Link>
+            <Link to="/car-rental"><li>Car Rental</li></Link>
+            <Link to="/travel"><li>Tours</li></Link>
           </ul>  
             </li>
           <Link to="/flights"><li>Book</li></Link>
-          <Link to="/my-bookings"><li>My Bookings</li></Link>
            <Link to="/contact"><li>Contact</li></Link>
         </ul>
         <div className="user-menu" ref={userDropdownRef}>
