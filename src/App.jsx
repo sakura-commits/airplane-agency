@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home.jsx";
 import { Flight } from "./Pages/Flight.jsx";
 import { Settings } from "./Pages/Settings.jsx";
+import { Hotel } from "./Pages/Hotel.jsx";
+import { CarRental } from "./Pages/CarRental.jsx";
 import { Profile } from "./Pages/Profile.jsx";
 import { MyBookings } from "./Pages/MyBookings.jsx";
 import { PaymentMethods } from "./Pages/PaymentMethods.jsx";
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/flights" element={<Flight />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/hotel" element={<Hotel />} />
+        <Route path="/car-rental" element={<CarRental />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/my-bookings" element={<MyBookings />} />
         <Route path="/payment-methods" element={<PaymentMethods />} />

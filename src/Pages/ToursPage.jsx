@@ -7,30 +7,49 @@ import {
   faFilter,
   faSlidersH,
   faTimes,
-  faMapMarkedAlt,
   faMountain,
   faUmbrellaBeach,
   faTree,
   faCity,
   faCompass
 } from '@fortawesome/free-solid-svg-icons';
+import logoSrc from '../assets/serengeti-logo.webp';
 import './ToursPage.css';
 
 const tourData = [
   {
-    id: 1,
+    id: 'serengeti-001',
     title: 'Serengeti Safari Adventure',
+    subtitle: 'Experience the Great Migration & Big Five',
     category: 'Safari',
-    image: '/src/assets/serengeti-safari.jpg',
-    duration: '5 Days',
+    logo: logoSrc,
+    image: '/src/assets/1.jpg',
+    gallery: [
+      { id: 1, src: '/src/assets/1.jpg', title: 'Serengeti Sunrise' },
+      { id: 2, src: '/src/assets/2.webp', title: 'Lion Pride' },
+      { id: 3, src: '/src/assets/3.jpg', title: 'Great Migration' },
+      { id: 4, src: '/src/assets/4.webp', title: 'Acacia Trees' },
+      { id: 5, src: '/src/assets/5.jpg', title: 'Elephant Family' },
+      { id: 6, src: '/src/assets/6.jfif', title: 'Serengeti Plains' }
+    ],
+    duration: '5 Days / 4 Nights',
     groupSize: 8,
     price: 1850,
+    discount: 15,
     rating: 4.9,
-    reviews: 124,
+    reviews: 324,
     location: 'Serengeti NP',
     badge: 'Bestseller',
-    discount: 15,
-    highlights: ['Big Five', 'Camping', 'Hot Air Balloon']
+    nextDeparture: 'March 15, 2026',
+    availability: 'Limited spots',
+    highlights: [
+      'Witness the Great Migration',
+      'Spot the Big Five',
+      'Hot air balloon safari',
+      'Visit Maasai village',
+      'Professional guide'
+    ],
+    amenities: ['WiFi', 'Meals', 'Park Fees', 'Guide', '4x4 Vehicle']
   },
   {
     id: 2,
@@ -54,11 +73,11 @@ const tourData = [
     duration: '4 Days',
     groupSize: 15,
     price: 850,
+    discount: 10,
     rating: 4.7,
     reviews: 156,
     location: 'Zanzibar',
     badge: 'Top Rated',
-    discount: 10,
     highlights: ['Snorkeling', 'Spice Tour', 'Sunset Cruise']
   },
   {
@@ -180,6 +199,8 @@ export function ToursPage() {
         result.sort((a, b) => b.rating - a.rating);
     }
 
+    // update filtered list after computing results
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFilteredTours(result);
   }, [searchTerm, selectedCategory, priceRange, duration, sortBy, tours]);
 
@@ -333,7 +354,11 @@ export function ToursPage() {
           {filteredTours.length > 0 ? (
             <div className="tours-grid">
               {filteredTours.map(tour => (
-                <TourCard key={tour.id} tour={tour} />
+                <TourCard 
+                  key={tour.id} 
+                  tour={tour} 
+                  variant={tour.id === 'serengeti-001' ? 'featured' : 'standard'}
+                />
               ))}
             </div>
           ) : (

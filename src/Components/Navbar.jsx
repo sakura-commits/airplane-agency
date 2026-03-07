@@ -21,27 +21,21 @@ export function Navbar() {
     };
   }, []);
 
- return(
+  return (
     <>
-    <nav className="navbar">
-        <FontAwesomeIcon icon={faPlane} className="plane-icon"/>
-        <ul className="nav-links">    
-       <Link to="/"><li>Home</li></Link>
-        <li>Flight
+      <nav className="navbar">
+        <FontAwesomeIcon icon={faPlane} className="plane-icon" />
+        <ul className="nav-links">
+          <Link to="/"><li>Home</li></Link>
+          <li>Services
             <ul className="dropdown">
-                <li>Schedules</li>
-                <li>Offers</li>
+              <Link to="/hotel"><li>Hotel</li></Link>
+              <Link to="/car-rental"><li>Car Rental</li></Link>
+              <Link to="/tours"><li>Tours</li></Link>
             </ul>
-            </li>
-         <li>Services
-          <ul className="dropdown">
-            <li>Hotel</li>
-            <li>Car Rental</li>
-            <Link to="/tours"><li>Tours</li></Link>
-          </ul>  
-            </li>
+          </li>
           <Link to="/flights"><li>Book</li></Link>
-           <Link to="/contact"><li>Contact</li></Link>
+          <Link to="/contact"><li>Contact</li></Link>
         </ul>
         <div className="user-menu" ref={userDropdownRef}>
           <FontAwesomeIcon icon={faUser} className="user-icon" onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)} />
@@ -54,7 +48,7 @@ export function Navbar() {
             <li onClick={() => { alert('Logged out'); setIsUserDropdownOpen(false); }}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</li>
           </ul>
         </div>
-    </nav>
+      </nav>
     </>
- )
+  );
 }
