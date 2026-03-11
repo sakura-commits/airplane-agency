@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Navbar } from "../Components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
@@ -44,7 +43,7 @@ export function Profile() {
 
   return (
     <>
-      <Navbar />
+    
       <div className="profile-page-simple">
         <div className="profile-container-simple">
           <h1>Account Settings</h1>

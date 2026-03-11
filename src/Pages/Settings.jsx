@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Navbar } from "../Components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser,
@@ -219,7 +218,7 @@ export function Settings() {
 
   return (
     <>
-      <Navbar />
+
       <div className="settings-page">
         <div className="settings-header">
           <h1>Account Settings</h1>

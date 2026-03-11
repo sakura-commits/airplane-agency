@@ -11,11 +11,13 @@ import { TravelPreferences } from "./Pages/TravelPreferences.jsx";
 import { Contact } from "./Pages/Contact.jsx";
 import { ToursPage } from "./Pages/ToursPage.jsx"; // Tours
 import { TourDetails } from "./Pages/TourDetails.jsx"; // Tour details
+import { Navbar } from "./Components/Navbar.jsx";
 import Footer from "./Components/Footer.jsx";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/flights" element={<Flight />} />

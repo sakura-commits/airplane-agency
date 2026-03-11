@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Navbar } from '../Components/Navbar';
-import Footer from '../Components/Footer';
 import '../App.css';
 import { faStar, faLocationDot, faWifi, faSwimmingPool, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,7 +31,7 @@ export function Hotel() {
 
   return (
     <>
-    <Navbar/>
+   
     <div className="flights-page">
       <div className="contact-header"><h1>Find Your Stay</h1></div>
       <div className="flight-list">
@@ -53,7 +51,7 @@ export function Hotel() {
         ))}
       </div>
     </div>
-    <Footer />
+   
     </>
   );
 }

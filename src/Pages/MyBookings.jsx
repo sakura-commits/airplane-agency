@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Navbar } from "../Components/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Toast from '../Components/Toast';
 import {
@@ -169,7 +168,7 @@ export function MyBookings() {
 
   return (
     <>
-      <Navbar />
+      
       <div className="bookings-page">
         {toastData.visible && (
           <Toast

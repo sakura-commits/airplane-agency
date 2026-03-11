@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from '../Components/Navbar';
 import Hero from '../Components/Hero';
 import Services from '../Components/Services';
 import VideoSection from '../Components/VideoSection';
@@ -149,7 +148,6 @@ export function Home() {
 
   return (
     <div className="modern-home">
-      <Navbar />
       
       {/* Hero Section with Video Background */}
       <section className="modern-hero">
@@ -442,4 +440,5 @@ export function Home() {
       </section>
     </div>
   );
+
 }

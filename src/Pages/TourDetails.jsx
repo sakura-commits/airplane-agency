@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Navbar } from '../Components/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faClock,
@@ -96,7 +95,7 @@ export function TourDetails() {
   if (!tour) {
     return (
       <>
-        <Navbar />
+      
         <div className="tour-not-found">
           <h2>Tour Not Found</h2>
           <button onClick={() => navigate('/tours')}>Back to Tours</button>
@@ -107,7 +106,6 @@ export function TourDetails() {
 
   return (
     <>
-      <Navbar />
       <div className="tour-details-page">
         <button className="back-to-tours" onClick={() => navigate('/tours')}>
           <FontAwesomeIcon icon={faArrowLeft} />

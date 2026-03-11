@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navbar } from "../Components/Navbar";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChair,
@@ -137,7 +137,7 @@ export function TravelPreferences() {
 
   return (
     <>
-      <Navbar />
+   
       <div className="preferences-page">
         <div className="preferences-header">
           <div>

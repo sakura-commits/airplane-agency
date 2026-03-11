@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Navbar } from "../Components/Navbar";
 import { Notification } from "../Components/Notification";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -172,7 +171,7 @@ export function PaymentMethods() {
 
   return (
     <>
-      <Navbar />
+    
       <Notification 
         show={notification.show}
         type={notification.type}

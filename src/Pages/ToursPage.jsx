@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from '../Components/Navbar';
+
 import { TourCard } from '../Components/TourCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -216,7 +216,7 @@ export function ToursPage() {
 
   return (
     <>
-      <Navbar />
+    
       <div className="tours-page">
         <div className="tours-hero">
           <div className="hero-overlay" />

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Navbar } from '../Components/Navbar';
-import Footer from '../Components/Footer';
 import { faCar, faGasPump, faCogs, faUserFriends, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export function CarRental() {
@@ -31,7 +29,7 @@ export function CarRental() {
 
   return (
     <>
-    <Navbar/>
+   
     <div className="flights-page">
       <div className="contact-header"><h1>Explore on Wheels</h1></div>
       <div className="flight-list">
@@ -52,7 +50,7 @@ export function CarRental() {
         ))}
       </div>
     </div>
-    <Footer />
+ 
     </>
   );
 }
