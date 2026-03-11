@@ -7,12 +7,23 @@ import '../App.css';
 
 export function Navbar() {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const userDropdownRef = useRef(null);
+  const servicesRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
+      if (
+        userDropdownRef.current &&
+        !userDropdownRef.current.contains(event.target)
+      ) {
         setIsUserDropdownOpen(false);
+      }
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target)
+      ) {
+        setIsServicesOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -26,16 +37,29 @@ export function Navbar() {
       <nav className="navbar">
         <FontAwesomeIcon icon={faPlane} className="plane-icon" />
         <ul className="nav-links">
-          <Link to="/"><li>Home</li></Link>
-          <li>Services
-            <ul className="dropdown">
-              <Link to="/hotel"><li>Hotel</li></Link>
-              <Link to="/car-rental"><li>Car Rental</li></Link>
-              <Link to="/tours"><li>Tours</li></Link>
+          <li><Link to="/">Home</Link></li>
+          <li
+            className={`dropdown ${isServicesOpen ? 'open' : ''}`}
+            ref={servicesRef}
+          >
+            {/* prevent default to avoid jump */}
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsServicesOpen((v) => !v);
+              }}
+            >
+              Services
+            </a>
+            <ul className="dropdown-menu">
+              <li><Link to="/hotel">Hotel</Link></li>
+              <li><Link to="/car-rental">Car Rental</Link></li>
+              <li><Link to="/tours">Tours</Link></li>
             </ul>
           </li>
-          <Link to="/flights"><li>Book</li></Link>
-          <Link to="/contact"><li>Contact</li></Link>
+          <li><Link to="/flights">Book</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
         <div className="user-menu" ref={userDropdownRef}>
           <FontAwesomeIcon icon={faUser} className="user-icon" onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)} />

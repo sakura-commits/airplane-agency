@@ -17,9 +17,6 @@
 }
 
 /* Standard variant */
-.tour-card.standard {
-  /* Standard card styles */
-}
 
 .tour-card.standard .tour-card-image {
   position: relative;
@@ -329,6 +326,7 @@
   color: #1a202c;
   margin: 0 0 0.25rem;
   background: linear-gradient(135deg, #133a94, #1e4b8a);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
