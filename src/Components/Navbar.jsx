@@ -8,12 +8,23 @@ import '../App.css';
 // 1. ADD onLogout to the props here
 export function Navbar({ onLogout }) {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const userDropdownRef = useRef(null);
+  const servicesRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
+      if (
+        userDropdownRef.current &&
+        !userDropdownRef.current.contains(event.target)
+      ) {
         setIsUserDropdownOpen(false);
+      }
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target)
+      ) {
+        setIsServicesOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -27,18 +38,16 @@ export function Navbar({ onLogout }) {
       <nav className="navbar">
         <FontAwesomeIcon icon={faPlane} className="plane-icon" />
         <ul className="nav-links">
-          {/* 2. CHANGE "/" to "/home" so you don't go back to Login */}
-          <Link to="/home"><li>Home</li></Link>
+          <Link to="/"><li>Home</li></Link>
           <li>Services
             <ul className="dropdown">
-              {/* 3. MATCH these paths to your App.jsx routes */}
-              <Link to="/hotels"><li>Hotel</li></Link>
-              <Link to="/cars"><li>Car Rental</li></Link>
+              <Link to="/hotel"><li>Hotel</li></Link>
+              <Link to="/car-rental"><li>Car Rental</li></Link>
               <Link to="/tours"><li>Tours</li></Link>
             </ul>
           </li>
-          <Link to="/flights"><li>Book</li></Link>
-          <Link to="/contact"><li>Contact</li></Link>
+          <li><Link to="/flights">Book</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
         <div className="user-menu" ref={userDropdownRef}>
           <FontAwesomeIcon icon={faUser} className="user-icon" onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)} />

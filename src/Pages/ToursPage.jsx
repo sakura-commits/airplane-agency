@@ -23,15 +23,7 @@ const tourData = [
     subtitle: 'Experience the Great Migration & Big Five',
     category: 'Safari',
     logo: logoSrc,
-    image: '/src/assets/1.jpg',
-    gallery: [
-      { id: 1, src: '/src/assets/1.jpg', title: 'Serengeti Sunrise' },
-      { id: 2, src: '/src/assets/2.webp', title: 'Lion Pride' },
-      { id: 3, src: '/src/assets/3.jpg', title: 'Great Migration' },
-      { id: 4, src: '/src/assets/4.webp', title: 'Acacia Trees' },
-      { id: 5, src: '/src/assets/5.jpg', title: 'Elephant Family' },
-      { id: 6, src: '/src/assets/6.jfif', title: 'Serengeti Plains' }
-    ],
+    image: new URL('../assets/1.jpg', import.meta.url).href,
     duration: '5 Days / 4 Nights',
     groupSize: 8,
     price: 1850,
@@ -55,7 +47,7 @@ const tourData = [
     id: 2,
     title: 'Kilimanjaro Trek - Machame Route',
     category: 'Kilimanjaro',
-    image: '/src/assets/kilimanjaro.jpg',
+    image: new URL('../assets/2.webp', import.meta.url).href,
     duration: '7 Days',
     groupSize: 12,
     price: 2200,
@@ -69,7 +61,7 @@ const tourData = [
     id: 3,
     title: 'Zanzibar Beach & Stone Town',
     category: 'Beach',
-    image: '/src/assets/zanzibar.jpg',
+    image: new URL('../assets/3.jpg', import.meta.url).href,
     duration: '4 Days',
     groupSize: 15,
     price: 850,
@@ -84,7 +76,7 @@ const tourData = [
     id: 4,
     title: 'Ngorongoro Crater Safari',
     category: 'Safari',
-    image: '/src/assets/ngorongoro.jpg',
+    image: new URL('../assets/4.webp', import.meta.url).href,
     duration: '3 Days',
     groupSize: 6,
     price: 1200,
@@ -98,7 +90,7 @@ const tourData = [
     id: 5,
     title: 'Tarangire National Park Safari',
     category: 'Safari',
-    image: '/src/assets/tarangire.jpg',
+    image: new URL('../assets/5.jpg', import.meta.url).href,
     duration: '2 Days',
     groupSize: 8,
     price: 750,
@@ -111,7 +103,7 @@ const tourData = [
     id: 6,
     title: 'Maasai Cultural Experience',
     category: 'Cultural',
-    image: '/src/assets/maasai.jpg',
+    image: new URL('../assets/6.jfif', import.meta.url).href,
     duration: '1 Day',
     groupSize: 20,
     price: 180,
@@ -124,7 +116,7 @@ const tourData = [
     id: 7,
     title: 'Kilimanjaro Trek - Lemosho Route',
     category: 'Kilimanjaro',
-    image: '/src/assets/lemosho.jpg',
+    image: new URL('../assets/1.jpg', import.meta.url).href,
     duration: '8 Days',
     groupSize: 10,
     price: 2600,
@@ -138,7 +130,7 @@ const tourData = [
     id: 8,
     title: 'Prison Island & Spice Tour',
     category: 'Beach',
-    image: '/src/assets/prison-island.jpg',
+    image: new URL('../assets/2.webp', import.meta.url).href,
     duration: '1 Day',
     groupSize: 15,
     price: 120,
@@ -357,7 +349,7 @@ export function ToursPage() {
                 <TourCard 
                   key={tour.id} 
                   tour={tour} 
-                  variant={tour.id === 'serengeti-001' ? 'featured' : 'standard'}
+                  variant="standard" 
                 />
               ))}
             </div>

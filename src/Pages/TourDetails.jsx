@@ -106,7 +106,6 @@ export function TourDetails() {
 
   return (
     <>
-      <Navbar />
       <div className="tour-details-page">
         <button className="back-to-tours" onClick={() => navigate('/tours')}>
           <FontAwesomeIcon icon={faArrowLeft} />
