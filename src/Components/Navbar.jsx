@@ -1,11 +1,12 @@
-import {faPlane} from '@fortawesome/free-solid-svg-icons';
+import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSignOutAlt, faCog, faCreditCard, faCalendarAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import '../App.css';
 
-export function Navbar() {
+// 1. ADD onLogout to the props here
+export function Navbar({ onLogout }) {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const userDropdownRef = useRef(null);
 
@@ -26,11 +27,13 @@ export function Navbar() {
       <nav className="navbar">
         <FontAwesomeIcon icon={faPlane} className="plane-icon" />
         <ul className="nav-links">
-          <Link to="/"><li>Home</li></Link>
+          {/* 2. CHANGE "/" to "/home" so you don't go back to Login */}
+          <Link to="/home"><li>Home</li></Link>
           <li>Services
             <ul className="dropdown">
-              <Link to="/hotel"><li>Hotel</li></Link>
-              <Link to="/car-rental"><li>Car Rental</li></Link>
+              {/* 3. MATCH these paths to your App.jsx routes */}
+              <Link to="/hotels"><li>Hotel</li></Link>
+              <Link to="/cars"><li>Car Rental</li></Link>
               <Link to="/tours"><li>Tours</li></Link>
             </ul>
           </li>
@@ -45,7 +48,14 @@ export function Navbar() {
             <li><Link to="/settings"><FontAwesomeIcon icon={faCog} /> Settings</Link></li>
             <li><Link to="/payment-methods"><FontAwesomeIcon icon={faCreditCard} /> Payment Methods</Link></li>
             <li><Link to="/preferences"><FontAwesomeIcon icon={faHeart} /> Travel Preferences</Link></li>
-            <li onClick={() => { alert('Logged out'); setIsUserDropdownOpen(false); }}><FontAwesomeIcon icon={faSignOutAlt} /> Logout</li>
+            
+            {/* 4. ATTACH the onLogout function here */}
+            <li onClick={() => { 
+              onLogout(); 
+              setIsUserDropdownOpen(false); 
+            }}>
+              <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+            </li>
           </ul>
         </div>
       </nav>
