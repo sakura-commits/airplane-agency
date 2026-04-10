@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Hero from '../Components/Hero';
 import Services from '../Components/Services';
 import VideoSection from '../Components/VideoSection';
+import { ScrollReveal } from '../hooks/useScrollReveal.jsx';
+import { AnimatedCounter } from '../components/AnimatedCounter.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faArrowRight, 
@@ -14,6 +17,13 @@ import {
   faPause
 } from '@fortawesome/free-solid-svg-icons';
 import videoSrc from '../assets/welcome.mp4';
+import serengetiImage from '../assets/serengeti-national-park-pool-of-water.jpg';
+import zanzibarImage from '../assets/2.webp';
+import kilimanjaroImage from '../assets/3.jpg';
+import ngorongoroImage from '../assets/4.webp';
+import user1Image from '../assets/1.jpg';
+import user2Image from '../assets/2.webp';
+import user3Image from '../assets/3.jpg';
 import '../App.css';
 
 // Sample tour data for featured tours
@@ -21,7 +31,7 @@ const featuredTours = [
   {
     id: 1,
     title: "Serengeti Safari Adventure",
-    image: "/src/assets/serengeti-national-park-pool-of-water.jpg",
+    image: serengetiImage,
     location: "Serengeti National Park",
     rating: 4.9,
     reviews: 124,
@@ -32,7 +42,7 @@ const featuredTours = [
   {
     id: 2,
     title: "Zanzibar Beach Escape",
-    image: "/src/assets/2.webp",
+    image: zanzibarImage,
     location: "Zanzibar",
     rating: 4.8,
     reviews: 98,
@@ -43,7 +53,7 @@ const featuredTours = [
   {
     id: 3,
     title: "Kilimanjaro Climb",
-    image: "/src/assets/3.jpg",
+    image: kilimanjaroImage,
     location: "Mount Kilimanjaro",
     rating: 4.9,
     reviews: 156,
@@ -54,7 +64,7 @@ const featuredTours = [
   {
     id: 4,
     title: "Ngorongoro Crater Tour",
-    image: "/src/assets/4.webp",
+    image: ngorongoroImage,
     location: "Ngorongoro",
     rating: 4.7,
     reviews: 87,
@@ -69,7 +79,7 @@ const testimonials = [
   {
     id: 1,
     name: "Sarah Johnson",
-    avatar: "/src/assets/user1.jpg",
+    avatar: user1Image,
     rating: 5,
     comment: "Amazing experience! The Serengeti safari exceeded all expectations. Our guide was knowledgeable and friendly.",
     location: "United States"
@@ -77,7 +87,7 @@ const testimonials = [
   {
     id: 2,
     name: "Michael Chen",
-    avatar: "/src/assets/user2.jpg",
+    avatar: user2Image,
     rating: 5,
     comment: "Perfect organization from start to finish. The Zanzibar beach resort was paradise on earth!",
     location: "Singapore"
@@ -85,7 +95,7 @@ const testimonials = [
   {
     id: 3,
     name: "Emma Williams",
-    avatar: "/src/assets/user3.jpg",
+    avatar: user3Image,
     rating: 4,
     comment: "Climbing Kilimanjaro was challenging but rewarding. Great support from the team throughout.",
     location: "United Kingdom"
@@ -94,43 +104,6 @@ const testimonials = [
 
 export function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [stats, setStats] = useState({
-    tours: 0,
-    customers: 0,
-    destinations: 0,
-    reviews: 0
-  });
-
-  // Animate stats on mount
-  useEffect(() => {
-    const targets = {
-      tours: 50,
-      customers: 5000,
-      destinations: 25,
-      reviews: 1500
-    };
-
-    const duration = 2000;
-    const steps = 60;
-    const interval = duration / steps;
-
-    let currentStep = 0;
-    const timer = setInterval(() => {
-      currentStep++;
-      setStats({
-        tours: Math.min(Math.floor((targets.tours / steps) * currentStep), targets.tours),
-        customers: Math.min(Math.floor((targets.customers / steps) * currentStep), targets.customers),
-        destinations: Math.min(Math.floor((targets.destinations / steps) * currentStep), targets.destinations),
-        reviews: Math.min(Math.floor((targets.reviews / steps) * currentStep), targets.reviews)
-      });
-
-      if (currentStep >= steps) {
-        clearInterval(timer);
-      }
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, []);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -183,19 +156,19 @@ export function Home() {
           {/* Stats */}
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-number">{stats.tours}+</span>
+              <span className="stat-number"><AnimatedCounter value={50} suffix="+" /></span>
               <span className="stat-label">Tours</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">{stats.customers.toLocaleString()}+</span>
+              <span className="stat-number"><AnimatedCounter value={5000} suffix="+" /></span>
               <span className="stat-label">Happy Customers</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">{stats.destinations}</span>
+              <span className="stat-number"><AnimatedCounter value={25} /></span>
               <span className="stat-label">Destinations</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">{stats.reviews.toLocaleString()}+</span>
+              <span className="stat-number"><AnimatedCounter value={1500} suffix="+" /></span>
               <span className="stat-label">5-Star Reviews</span>
             </div>
           </div>
@@ -225,22 +198,25 @@ export function Home() {
       </section>
 
       {/* Featured Services */}
-      <section className="featured-services">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-badge">Our Services</span>
-            <h2 className="section-title">Everything You Need for <span className="gradient-text">Perfect Travel</span></h2>
-            <p className="section-description">
-              From flights to accommodation, we've got you covered
-            </p>
+      <ScrollReveal>
+        <section className="featured-services">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-badge">Our Services</span>
+              <h2 className="section-title">Everything You Need for <span className="gradient-text">Perfect Travel</span></h2>
+              <p className="section-description">
+                From flights to accommodation, we've got you covered
+              </p>
+            </div>
+            
+            <Services />
           </div>
-          
-          <Services />
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Featured Tours */}
-      <section className="featured-tours">
+      <ScrollReveal>
+        <section className="featured-tours">
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Popular Destinations</span>
@@ -250,9 +226,27 @@ export function Home() {
             </p>
           </div>
           
-          <div className="tours-grid">
+          <motion.div
+            className="tours-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+            }}
+          >
             {featuredTours.map((tour) => (
-              <div key={tour.id} className="tour-card-modern">
+              <motion.div
+                key={tour.id}
+                className="tour-card-modern"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.45 }}
+                whileHover={{ y: -8 }}
+              >
                 <div className="tour-image">
                   <img src={tour.image} alt={tour.title} />
                   {tour.badge && <span className="tour-badge">{tour.badge}</span>}
@@ -291,9 +285,9 @@ export function Home() {
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           
           <div className="view-all-container">
             <button className="view-all-btn">
@@ -302,9 +296,11 @@ export function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Why Choose Us */}
-      <section className="why-choose-us">
+      <ScrollReveal>
+        <section className="why-choose-us">
         <div className="container">
           <div className="choose-us-grid">
             <div className="choose-us-content">
@@ -352,9 +348,11 @@ export function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Testimonials */}
-      <section className="testimonials-section">
+      <ScrollReveal>
+        <section className="testimonials-section">
         <div className="container">
           <div className="section-header">
             <span className="section-badge">Testimonials</span>
@@ -411,6 +409,7 @@ export function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Newsletter */}
       <section className="newsletter-section">

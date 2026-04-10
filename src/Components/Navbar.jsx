@@ -1,16 +1,24 @@
 import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSignOutAlt, faCog, faCreditCard, faCalendarAlt, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSignOutAlt, faCog, faCreditCard, faCalendarAlt, faHeart, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 import '../App.css';
 
 // 1. ADD onLogout to the props here
-export function Navbar({ onLogout }) {
+export function Navbar({ onLogout, user }) {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const userDropdownRef = useRef(null);
   const servicesRef = useRef(null);
+
+  const handlePlaneClick = () => {
+    if (user && ['admin', 'super_admin', 'manager'].includes(user.role)) {
+      window.location.href = '/admin/dashboard';
+    } else {
+      window.location.href = '/home';
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,11 +44,11 @@ export function Navbar({ onLogout }) {
   return (
     <>
       <nav className="navbar">
-        <FontAwesomeIcon icon={faPlane} className="plane-icon" />
+        <FontAwesomeIcon icon={faPlane} className="plane-icon" onClick={handlePlaneClick} />
         <ul className="nav-links">
           <Link to="/"><li>Home</li></Link>
-          <li>Services
-            <ul className="dropdown">
+          <li className="dropdown" ref={servicesRef}>Services
+            <ul className="dropdown-menu">
               <Link to="/hotel"><li>Hotel</li></Link>
               <Link to="/car-rental"><li>Car Rental</li></Link>
               <Link to="/tours"><li>Tours</li></Link>
@@ -48,6 +56,9 @@ export function Navbar({ onLogout }) {
           </li>
           <li><Link to="/flights">Book</Link></li>
           <li><Link to="/contact">Contact</Link></li>
+          {['admin', 'super_admin', 'manager'].includes(user?.role) && (
+            <li><Link to="/admin/dashboard"><FontAwesomeIcon icon={faUserCog} /> Admin</Link></li>
+          )}
         </ul>
         <div className="user-menu" ref={userDropdownRef}>
           <FontAwesomeIcon icon={faUser} className="user-icon" onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)} />
